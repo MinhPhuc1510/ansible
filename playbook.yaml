@@ -1,5 +1,5 @@
 - name: Install 
-  hosts: 172.16.10.102
+  hosts: all
   tasks:
     - name: Install unzip
       yum:
