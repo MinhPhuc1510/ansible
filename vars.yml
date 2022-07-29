@@ -8,5 +8,5 @@ esxi_hostname: 192.168.0.42
 state: poweredon
 servers:
         - { name: centos8_01, template: centos8 }
-        - { name: centos7_01, template: centos7-minimal }
+        #- { name: centos7_01, template: centos7-minimal }
        
