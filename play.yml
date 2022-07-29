@@ -19,7 +19,7 @@
         hostname: "{{ vcenter_hostname }}" # Hostname for vCetner
         username: "{{ username }}" # Username for vCenter
         password: "{{ password }}" # Password for vCenter
-        validate_certs: no # As this is a lab, I have self signed certificates, the default is yes, so specify no if you have self signed certs
+        validate_certs: False # As this is a lab, I have self signed certificates, the default is yes, so specify no if you have self signed certs
         folder: "{{ folder }}" # Which folder you are putting this Virtual Machine into (if you don't specify it will go into the root)
         template: "{{ item.template }}" # Which template you are cloning from
         name: "{{ item.name }}" # The name of the Virtual Machine
