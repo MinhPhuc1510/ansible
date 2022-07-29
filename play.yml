@@ -11,8 +11,6 @@
         name:
           - git
           - epel-release
-          - python-pyvmomi
-          - python-requests
         state: latest
 
     - name: Clone multiple VMs from template
