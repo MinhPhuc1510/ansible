@@ -6,10 +6,10 @@
     #   apt:
     #     name: unzip
     #     state: absent
-    - name: Template a file to /homes/playbooks/result.txt
+    - name: Template a file to /home/playbooks/result.txt
       ansible.builtin.template:
         src: test.txt
-        dest: /homes/playbooks/result.txt
+        dest: /home/playbooks/result.txt
         owner: bin
         group: wheel
         mode: '0644'
