@@ -12,6 +12,6 @@
       ansible.builtin.template:
         src: test.txt
         dest: /home/playbooks/result.txt
-        owner: bin
-        group: wheel
+        owner: root
+        group: root
         mode: '0644'
