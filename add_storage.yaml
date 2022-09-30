@@ -16,7 +16,7 @@
         name:
           - python3
           - python3-pip
-          - pyVmomi
+          - PyVmomi
         state: present
 
     # - name: Install collection community.network
