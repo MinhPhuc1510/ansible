@@ -10,14 +10,14 @@
 
   tasks:
 
-    # - name: ensure python3 is installed
-    #   become: yes
-    #   ansible.builtin.package:
-    #     name:
-    #       - python3
-    #       - python3-pip
-    #       - pyVmomi
-    #     state: present
+    - name: ensure python3 is installed
+      become: yes
+      ansible.builtin.package:
+        name:
+          - python3
+          - python3-pip
+          - pyVmomi
+        state: present
 
     # - name: Install collection community.network
     #   community.general.ansible_galaxy_install:
