@@ -1,22 +1,22 @@
 - name: Storage 
   hosts: all
   vars: 
-    vcenter_hostname: https://172.37.7.10
+    vcenter_hostname: 172.37.7.10
     vcenter_username: Administrator@vsphere.local
     vcenter_password: Hitachi1!
     datastore_name: mpx.vmhba1:C0:T1:L0
     datastore_type: vmfs
-    inventory_hostname: https://172.37.7.15
+    inventory_hostname: 172.37.7.15
 
   tasks:
 
-    - name: ensure python3 is installed
-      become: yes
-      ansible.builtin.package:
-        name:
-          - python3
-          - python3-pip
-        state: present
+    # - name: ensure python3 is installed
+    #   become: yes
+    #   ansible.builtin.package:
+    #     name:
+    #       - python3
+    #       - python3-pip
+    #     state: present
 
     # - name: Install collection community.network
     #   community.general.ansible_galaxy_install:
