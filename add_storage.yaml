@@ -7,7 +7,22 @@
     datastore_name: mpx.vmhba1:C0:T1:L0
     datastore_type: vmfs
     inventory_hostname: https://172.37.7.15/
+
   tasks:
+  
+    - name: ensure python3 is installed
+      become: yes
+      ansible.builtin.package:
+        name:
+          - python3
+          - python3-pip
+          - pyVmomi
+        state: present
+
+    - name: Install collection community.network
+      community.general.community.vmware:
+        type: collection
+        name: community.network
     # - name: Create Datacenter
     #   community.vmware.vmware_datacenter:
     #     hostname: '{{ vcenter_hostname }}'
