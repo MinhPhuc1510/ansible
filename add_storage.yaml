@@ -9,7 +9,7 @@
     inventory_hostname: https://172.37.7.15/
 
   tasks:
-  
+
     - name: ensure python3 is installed
       become: yes
       ansible.builtin.package:
@@ -20,7 +20,7 @@
         state: present
 
     - name: Install collection community.network
-      community.general.community.vmware:
+      community.general.ansible_galaxy_install:
         type: collection
         name: community.network
     # - name: Create Datacenter
