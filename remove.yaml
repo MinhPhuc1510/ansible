@@ -1,0 +1,57 @@
+- name: Storage 
+  hosts: all
+  vars: 
+    vcenter_hostname: 172.37.7.10
+    vcenter_username: Administrator@vsphere.local
+    vcenter_password: Hitachi1!
+    datastore_name: Test
+    vmfs_device_name: mpx.vmhba1:C0:T2:L0
+    datastore_type: vmfs
+    esxi_hostname: 172.37.7.15
+    datacenter_name: vlab-phuc-02
+    cluster_name: cluster-01
+    esxi_username: root
+    esxi_password: Hitachi1!
+    
+  tasks:
+
+    - name: Disconnect ESXi Host to vCenter
+      community.vmware.vmware_host:
+        hostname: '{{ vcenter_hostname }}'
+        username: '{{ vcenter_username }}'
+        password: '{{ vcenter_password }}'
+        datacenter: '{{ datacenter_name }}'
+        cluster: '{{ cluster_name }}'
+        esxi_hostname: '{{ esxi_hostname }}'
+        esxi_username: '{{ esxi_username }}'
+        esxi_password: '{{ esxi_password }}'
+        state: disconnected
+        validate_certs: no
+      delegate_to: localhost
+
+    - name: Remove/Umount Datastores from a ESXi
+      community.vmware.vmware_host_datastore:
+          hostname: '{{ esxi_hostname }}'
+          username: '{{ esxi_username }}'
+          password: '{{ esxi_password }}'
+          datastore_name: '{{ datastore_name }}'
+          state: absent
+          validate_certs: no
+      delegate_to: localhost
+
+    - name: Reconnect ESXi Host to vCenter
+      community.vmware.vmware_host:
+        hostname: '{{ vcenter_hostname }}'
+        username: '{{ vcenter_username }}'
+        password: '{{ vcenter_password }}'
+        datacenter: '{{ datacenter_name }}'
+        cluster: '{{ cluster_name }}'
+        esxi_hostname: '{{ esxi_hostname }}'
+        esxi_username: '{{ esxi_username }}'
+        esxi_password: '{{ esxi_password }}'
+        state: connected
+        validate_certs: no
+      delegate_to: localhost
+
+
+   
