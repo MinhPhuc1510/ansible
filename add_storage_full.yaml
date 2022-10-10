@@ -46,7 +46,7 @@
         esxi_username: '{{ esxi_username }}'
         esxi_password: '{{ esxi_password }}'
         state: present
-        validate_certs: no
+        validate_certs: yes
       delegate_to: localhost  
 
     - name: Recan HBA's for a given ESXi host and refresh storage system objects
